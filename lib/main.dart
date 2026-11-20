@@ -11,6 +11,29 @@ class MyApp extends StatelessWidget {
     print("Testing Button");
   }
 
+  Widget statCard(String value, String label, IconData icon) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.amber.shade100,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, size: 38),
+          const SizedBox(height: 10),
+          Text(
+            value,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+          const SizedBox(height: 4),
+          Text(label),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -62,60 +85,17 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 40),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    StatCard(
-                      value: "80%",
-                      label: "Attendance",
-                      icon: Icons.check_circle,
-                    ),
-                    StatCard(value: "3.8", label: "CGPA", icon: Icons.star),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  statCard("80%", "Attendance", Icons.check_circle),
+                  const SizedBox(width: 16),
+                  statCard("3.8", "CGPA", Icons.star),
+                ],
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class StatCard extends StatelessWidget {
-  const StatCard({
-    super.key,
-    required this.value,
-    required this.label,
-    required this.icon,
-  });
-
-  final String value;
-  final String label;
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.amber.shade100,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(icon, size: 38),
-          const SizedBox(height: 10),
-          Text(
-            value,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          ),
-          const SizedBox(height: 4),
-          Text(label),
-        ],
       ),
     );
   }
