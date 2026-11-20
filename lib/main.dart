@@ -11,29 +11,6 @@ class MyApp extends StatelessWidget {
     print("Testing Button");
   }
 
-  Widget statCard(String value, String label, IconData icon) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.amber.shade100,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(icon, size: 38),
-          const SizedBox(height: 10),
-          Text(
-            value,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          ),
-          const SizedBox(height: 4),
-          Text(label),
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -88,9 +65,53 @@ class MyApp extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  statCard("80%", "Attendance", Icons.check_circle),
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.amber.shade100,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(Icons.check_circle, size: 38),
+                        SizedBox(height: 10),
+                        Text(
+                          "80%",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Text("Attendance"),
+                      ],
+                    ),
+                  ),
                   const SizedBox(width: 16),
-                  statCard("3.8", "CGPA", Icons.star),
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.amber.shade100,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(Icons.star, size: 38),
+                        SizedBox(height: 10),
+                        Text(
+                          "3.8",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Text("CGPA"),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ],
