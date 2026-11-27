@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 
+import "block.dart";
+
 void main() {
   runApp(const MyApp());
 }
@@ -7,6 +9,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  // Declaring a function
   void doSomething() {
     print("Testing Button");
   }
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
               const SizedBox(height: 10),
               const Text(
                 "My dashboard",
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
               ),
               const SizedBox(height: 8),
               Container(
@@ -65,52 +68,18 @@ class MyApp extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.amber.shade100,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(Icons.check_circle, size: 38),
-                        SizedBox(height: 10),
-                        Text(
-                          "80%",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text("Attendance"),
-                      ],
-                    ),
+                  Block(
+                    "Attendance",
+                    Icons.check_circle,
+                    colour: Colors.amber.shade100,
+                    value: "80%",
                   ),
                   const SizedBox(width: 16),
-                  Container(
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.amber.shade100,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(Icons.star, size: 38),
-                        SizedBox(height: 10),
-                        Text(
-                          "3.8",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text("CGPA"),
-                      ],
-                    ),
+                  Block(
+                    "CGPA",
+                    Icons.star,
+                    colour: Colors.amber.shade100,
+                    value: "3.8",
                   ),
                 ],
               ),
